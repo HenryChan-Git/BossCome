@@ -28,12 +28,12 @@ android {
     ndkVersion flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '11'
     }
 
     sourceSets {
@@ -65,3 +65,36 @@ flutter {
 }
 
 dependencies {}
+
+// 添加任务来查看所有可用版本
+task printJavaVersions {
+    doLast {
+        println "=== 可用的Java版本 ==="
+        println "JavaVersion.VERSION_1_6 -> 6"
+        println "JavaVersion.VERSION_1_7 -> 7" 
+        println "JavaVersion.VERSION_1_8 -> 8"
+        println "JavaVersion.VERSION_1_9 -> 9"
+        println "JavaVersion.VERSION_10 -> 10"
+        println "JavaVersion.VERSION_11 -> 11"
+        println "JavaVersion.VERSION_12 -> 12"
+        println "JavaVersion.VERSION_13 -> 13"
+        println "JavaVersion.VERSION_14 -> 14"
+        println "JavaVersion.VERSION_15 -> 15"
+        println "JavaVersion.VERSION_16 -> 16"
+        println "JavaVersion.VERSION_17 -> 17"
+        println "JavaVersion.VERSION_18 -> 18"
+        println "JavaVersion.VERSION_19 -> 19"
+        println "JavaVersion.VERSION_20 -> 20"
+        println "JavaVersion.VERSION_21 -> 21"
+    }
+}
+
+task validateJavaVersion {
+    doLast {
+        println "=== Java版本验证 ==="
+        println "sourceCompatibility: ${android.compileOptions.sourceCompatibility}"
+        println "targetCompatibility: ${android.compileOptions.targetCompatibility}"
+        println "Kotlin jvmTarget: ${android.kotlinOptions.jvmTarget}"
+        println "系统Java版本: ${System.getProperty('java.version')}"
+    }
+}
