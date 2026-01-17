@@ -72,6 +72,10 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.release
         }
+        // 显式指定 debug 签名
+        debug {
+            signingConfig signingConfigs.debug
+        }
     }
 }
 
